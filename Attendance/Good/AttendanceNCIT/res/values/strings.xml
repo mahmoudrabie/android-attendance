@@ -4,17 +4,6 @@
     <string name="hello">Hello World, AttendanceNCITActivity!</string>
     <string name="app_name">AttendanceNCIT</string>
 	
-	<string-array name="courses_array">
-        <item>Matematica 1</item>
-        <item>Matematica 2</item>
-        <item>Programarea calculatoarelor</item>
-        <item>Utilizarea sistemelor de operare</item>
-        <item>Proiectare logica</item>
-        <item>Engleza</item>
-        <item>Introducere in informatica</item>
-        <item>Educatie fizica</item>
-        <item>Grafica inginereasca</item>
-        <item>Psihologia educatiei</item>
-    </string-array>
+	
     <string name="courses_prompt">Select course</string>
 </resources>
