@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemSelectedListener;
+import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -29,11 +30,13 @@ public class CourseSelectionActivity extends Activity{
 	        
 	        availableCourses = new String[100];
 	        for (int i = 0; i < 100; i ++){
-	        	availableCourses[i] = "";
+	        	availableCourses[i] = i + "";
 	        }
 	        
-	        String functionName = "core_enrol_get_users_courses";
+	        
+	        String functionName = "moodle_enrol_get_users_courses";
 	        String urlParameters = "";
+	        
 	        try {
 				urlParameters = "userid="+URLEncoder.encode("5","UTF-8");
 			} catch (UnsupportedEncodingException e) {
@@ -43,6 +46,13 @@ public class CourseSelectionActivity extends Activity{
 	        connector = new MoodleConnector(urlParameters,functionName);
 	        String results = connector.communicate();
 	        
+	        //Toast.makeText(this, results, Toast.LENGTH_SHORT).show();
+	        System.out.println(results);
+	        ArrayAdapter adapter = new ArrayAdapter(this,
+	        										android.R.layout.simple_spinner_item, 
+	        										availableCourses);
+	        
+	        spinner.setAdapter(adapter);
 	        //attach the listener to the spinner
 	        spinner.setOnItemSelectedListener(new MyOnItemSelectedListener());
 	        
