@@ -29,16 +29,20 @@ public class AttendanceNCITActivity extends Activity {
 				
 				public void onClick(View arg0) {
 					//Starting a new Intent
-					//Intent nextScreen = new Intent(getApplicationContext(), AttendanceNCITActivity2.class);
 					Intent nextScreen = new Intent(AttendanceNCITActivity.this,MainMenuActivity.class);
-					//Sending data to another Activity
-					//nextScreen.putExtra("username_input", inputUsername.getText().toString());
-					//nextScreen.putExtra("password_input", inputPassword.getText().toString());
 					
 					// starting new activity
 					startActivity(nextScreen);
 					
 				}
 			});
+		}
+		
+		public String getUsername(){
+			return inputUsername.getText().toString();
+		}
+		
+		public String getPassword(){
+			return inputPassword.getText().toString();
 		}
 } 

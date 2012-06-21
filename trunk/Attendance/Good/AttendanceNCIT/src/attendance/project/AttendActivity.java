@@ -11,23 +11,48 @@ import java.net.MalformedURLException;
 import java.net.ProtocolException;
 import java.net.URL;
 import java.net.URLEncoder;
+
 import android.app.Activity;
 import android.os.Bundle;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.Toast;
 
 
 public class AttendActivity extends Activity{	
 	    
+		private CheckBox attendCourse;
+		private CheckBox attendLab;
+		private Button attendButton;
+		
+		private String domainName = "http://192.168.0.106/moodle";
+		private String token = "a95627c35b4c824d90f9445bf828e571";
+	
 	    @Override
 	    public void onCreate(Bundle savedInstanceState) {
 	        super.onCreate(savedInstanceState);
 	        setContentView(R.layout.page4);
 	       
-	      /// NEED TO BE CHANGED
-	        String token = "a95627c35b4c824d90f9445bf828e571";
-	        String domainName = "http://192.168.0.106/moodle/";
+	        attendCourse = (CheckBox)findViewById(R.id.attend_course);
+	        attendLab = (CheckBox)findViewById(R.id.attend_lab);
+	        attendButton = (Button)findViewById(R.id.check_attend);
 	        
-	        /// REST RETURNED VALUES FORMAT
+	        attendButton.setOnClickListener(new OnClickListener() {
+				
+				public void onClick(View v) {
+					// TODO Auto-generated method stub
+					attendSelected();
+				}
+			});
+	        
+	        
+	    }
+	    
+	    public void attendSelected(){
+	    	
+	    	// REST RETURNED VALUES FORMAT
 	        String restformat = "xml"; //Also possible in Moodle 2.2 and later: 'json'
 	                                   //Setting it to 'json' will fail all calls on earlier Moodle version
 	        if (restformat.equals("json")) {
