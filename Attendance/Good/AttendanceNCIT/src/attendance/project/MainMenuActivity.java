@@ -7,7 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-public class AttendanceNCITActivity2 extends Activity {
+public class MainMenuActivity extends Activity {
     Button select;
     Button attend;
     Button close;
@@ -39,7 +39,7 @@ public class AttendanceNCITActivity2 extends Activity {
 			
 			public void onClick(View arg0) {
 				//Starting a new Intent
-				Intent selectCourse = new Intent(getApplicationContext(), AttendanceNCITActivity3.class);
+				Intent selectCourse = new Intent(getApplicationContext(), CourseSelectionActivity.class);
 				//Intent selectCourse = new Intent(AttendanceNCITActivity2.this,AttendanceNCITActivity3.class);
 				// starting new activity
 				startActivity(selectCourse);

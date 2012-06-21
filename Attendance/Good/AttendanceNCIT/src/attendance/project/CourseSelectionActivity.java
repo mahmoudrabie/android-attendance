@@ -10,7 +10,7 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 
-public class AttendanceNCITActivity3 extends Activity{	
+public class CourseSelectionActivity extends Activity{	
 	
 	    private String selectedCourse = null;
 	    
@@ -39,7 +39,7 @@ public class AttendanceNCITActivity3 extends Activity{
 	                if(selectedCourse != null){
 	                    Toast.makeText(parent.getContext(), "Selected course is " + selectedItem,
 	                    Toast.LENGTH_LONG).show();
-	                    Intent selectCourse = new Intent(getApplicationContext(), AttendanceNCITActivity4.class);
+	                    Intent selectCourse = new Intent(getApplicationContext(), AttendActivity.class);
 	                    startActivity(selectCourse);
 	                }
 	                selectedCourse = selectedItem;

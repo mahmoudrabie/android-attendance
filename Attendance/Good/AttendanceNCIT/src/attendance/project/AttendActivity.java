@@ -16,7 +16,7 @@ import android.os.Bundle;
 import android.widget.Toast;
 
 
-public class AttendanceNCITActivity4 extends Activity{	
+public class AttendActivity extends Activity{	
 	    
 	    @Override
 	    public void onCreate(Bundle savedInstanceState) {
@@ -24,7 +24,7 @@ public class AttendanceNCITActivity4 extends Activity{
 	        setContentView(R.layout.page4);
 	       
 	      /// NEED TO BE CHANGED
-	        String token = "edec61a38543c97f20fa57d510c9a489";
+	        String token = "a95627c35b4c824d90f9445bf828e571";
 	        String domainName = "http://192.168.0.106/moodle/";
 	        
 	        /// REST RETURNED VALUES FORMAT
@@ -37,33 +37,11 @@ public class AttendanceNCITActivity4 extends Activity{
 	        }
 	        
 	        /// PARAMETERS - NEED TO BE CHANGED IF YOU CALL A DIFFERENT FUNCTION
-	        String functionName = "moodle_user_create_users";
+	        String functionName = "moodle_user_get_users_by_id";
 	        String urlParameters = null;
 			try {
-				urlParameters = "users[0][username]=" + URLEncoder.encode("testusername1", "UTF-8") +
-				"&users[0][password]=" + URLEncoder.encode("123!Moodle", "UTF-8") +
-				"&users[0][firstname]=" + URLEncoder.encode("testfirstname1", "UTF-8") +
-				"&users[0][lastname]=" + URLEncoder.encode("testlastname1", "UTF-8") +
-				"&users[0][email]=" + URLEncoder.encode("razvanprejbeanu@yahoo.com", "UTF-8") +
-				"&users[0][auth]=" + URLEncoder.encode("manual", "UTF-8") +
-				"&users[0][idnumber]=" + URLEncoder.encode("testidnumber1", "UTF-8") +
-				"&users[0][lang]=" + URLEncoder.encode("en", "UTF-8") +
-				"&users[0][theme]=" + URLEncoder.encode("standard", "UTF-8") +
-				"&users[0][timezone]=" + URLEncoder.encode("-12.5", "UTF-8") +
-				"&users[0][mailformat]=" + URLEncoder.encode("0", "UTF-8") +
-				"&users[0][description]=" + URLEncoder.encode("Hello World!", "UTF-8") +
-				"&users[0][city]=" + URLEncoder.encode("testcity1", "UTF-8") +
-				"&users[0][country]=" + URLEncoder.encode("au", "UTF-8") +
-				"&users[0][preferences][0][type]=" + URLEncoder.encode("preference1", "UTF-8") +
-				"&users[0][preferences][0][value]=" + URLEncoder.encode("preferencevalue1", "UTF-8") +
-				"&users[0][preferences][1][type]=" + URLEncoder.encode("preference2", "UTF-8") +
-				"&users[0][preferences][1][value]=" + URLEncoder.encode("preferencevalue2", "UTF-8") +
-				"&users[1][username]=" + URLEncoder.encode("testusername2", "UTF-8") +
-				"&users[1][password]=" + URLEncoder.encode("123!Moodle", "UTF-8") +
-				"&users[1][firstname]=" + URLEncoder.encode("testfirstname2", "UTF-8") +
-				"&users[1][lastname]=" + URLEncoder.encode("testlastname2", "UTF-8") +
-				"&users[1][email]=" + URLEncoder.encode("razvanprejbeanu@yahoo.com", "UTF-8") +
-				"&users[1][timezone]=" + URLEncoder.encode("Pacific/Port_Moresby", "UTF-8");
+				urlParameters = "userids[0]=" + URLEncoder.encode("1","UTF-8");
+				
 			} catch (UnsupportedEncodingException e1) {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
@@ -128,9 +106,9 @@ public class AttendanceNCITActivity4 extends Activity{
 				while((line = rd.readLine()) != null) {
 				    response.append(line);
 				    response.append('\r');
-				    rd.close();
 			        System.out.println(response.toString());
 				}
+				rd.close();
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
