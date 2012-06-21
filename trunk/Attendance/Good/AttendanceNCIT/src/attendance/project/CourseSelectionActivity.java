@@ -1,5 +1,8 @@
 package attendance.project;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -13,6 +16,9 @@ import android.widget.Toast;
 public class CourseSelectionActivity extends Activity{	
 	
 	    private String selectedCourse = null;
+	    private String [] availableCourses;
+	    
+	    MoodleConnector connector;
 	    
 	    @Override
 	    public void onCreate(Bundle savedInstanceState) {
@@ -20,8 +26,26 @@ public class CourseSelectionActivity extends Activity{
 	        setContentView(R.layout.page3);
 	        //get reference to the spinner from the XML layout
 	        Spinner spinner = (Spinner) findViewById(R.id.spinner);
+	        
+	        availableCourses = new String[100];
+	        for (int i = 0; i < 100; i ++){
+	        	availableCourses[i] = "";
+	        }
+	        
+	        String functionName = "core_enrol_get_users_courses";
+	        String urlParameters = "";
+	        try {
+				urlParameters = "userid="+URLEncoder.encode("5","UTF-8");
+			} catch (UnsupportedEncodingException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+	        connector = new MoodleConnector(urlParameters,functionName);
+	        String results = connector.communicate();
+	        
 	        //attach the listener to the spinner
 	        spinner.setOnItemSelectedListener(new MyOnItemSelectedListener());
+	        
 	    }
 
 	    public class MyOnItemSelectedListener implements OnItemSelectedListener {
