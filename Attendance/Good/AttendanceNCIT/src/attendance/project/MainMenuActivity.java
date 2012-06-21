@@ -17,22 +17,9 @@ public class MainMenuActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.page2);
         
-        //TextView txtName = (TextView) findViewById(R.id.txtUsername);
-        //TextView txtEmail = (TextView) findViewById(R.id.txtPassword);
         select = (Button) findViewById(R.id.selectButton);
         attend = (Button) findViewById(R.id.attendanceButton);
         close = (Button) findViewById(R.id.updateButton);
-        
-        //Intent i = getIntent();
-        // Receiving the Data
-        //String username = i.getStringExtra("username_input");
-        //String password = i.getStringExtra("password_input");
-        
-        // Displaying Received data
-        //txtName.setText(username);
-        //txtEmail.setText(password);
-        
-        // Binding Click event to Button
         
         
         select.setOnClickListener(new View.OnClickListener() {
@@ -40,7 +27,6 @@ public class MainMenuActivity extends Activity {
 			public void onClick(View arg0) {
 				//Starting a new Intent
 				Intent selectCourse = new Intent(getApplicationContext(), CourseSelectionActivity.class);
-				//Intent selectCourse = new Intent(AttendanceNCITActivity2.this,AttendanceNCITActivity3.class);
 				// starting new activity
 				startActivity(selectCourse);
 				
