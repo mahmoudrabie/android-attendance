@@ -18,6 +18,7 @@ public class CourseSelectionActivity extends Activity{
 	
 	    private String selectedCourse = null;
 	    private String [] availableCourses;
+	    private String domain;
 	    
 	    MoodleConnector connector;
 	    
@@ -43,12 +44,20 @@ public class CourseSelectionActivity extends Activity{
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-	        connector = new MoodleConnector(urlParameters,functionName);
+	        
+	        Intent sourceIntent = this.getIntent();
+	        String username = sourceIntent.getExtras().getString("user");
+	        String password = sourceIntent.getExtras().getString("pass");
+	        domain = sourceIntent.getExtras().getString("domain");
+	        
+	        //Toast.makeText(this, username + " " + password + " " + domain, Toast.LENGTH_SHORT).show();
+	   
+	        connector = new MoodleConnector(domain,urlParameters,functionName);
 	        String results = connector.communicate();
 	        
 	        //Toast.makeText(this, results, Toast.LENGTH_SHORT).show();
 	        System.out.println(results);
-	        ArrayAdapter adapter = new ArrayAdapter(this,
+	        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
 	        										android.R.layout.simple_spinner_item, 
 	        										availableCourses);
 	        
@@ -74,6 +83,7 @@ public class CourseSelectionActivity extends Activity{
 	                    Toast.makeText(parent.getContext(), "Selected course is " + selectedItem,
 	                    Toast.LENGTH_LONG).show();
 	                    Intent selectCourse = new Intent(getApplicationContext(), AttendActivity.class);
+	                    selectCourse.putExtra("domain", domain);
 	                    startActivity(selectCourse);
 	                }
 	                selectedCourse = selectedItem;
