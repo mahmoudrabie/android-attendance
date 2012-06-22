@@ -2,6 +2,8 @@ package attendance.project;
 
 import java.io.BufferedReader;
 import java.io.DataOutputStream;
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -11,19 +13,36 @@ import java.net.MalformedURLException;
 import java.net.ProtocolException;
 import java.net.URL;
 import java.net.URLEncoder;
+import java.util.Scanner;
 
 import android.widget.Toast;
 
 public class MoodleConnector {
 		private String urlParameters;
-		private String domainName = "http://192.168.0.106/moodle";
-		private String token = "a95627c35b4c824d90f9445bf828e571";
+		//private String domainName = "http://192.168.0.106/moodle";
+		private String domainName = "";
+		//private String token = "a95627c35b4c824d90f9445bf828e571";
+		private String token = "";
 		private String connectionResult = "";
 		private String functionName;
 		
-		public MoodleConnector(String urlParameters, String functionName){
+		public MoodleConnector(String domainName,String urlParameters, String functionName){
 			this.urlParameters = urlParameters;
 			this.functionName = functionName;
+			this.domainName = domainName;
+			
+			File f = new File("/mnt/sdcard/moodlesessions/savedTokens.txt");
+			Scanner scanner = null;
+			
+			try {
+				scanner = new Scanner(f);
+				String mdPass = scanner.nextLine();
+				token = scanner.nextLine();
+				scanner.close();
+			} catch (FileNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 		
 		public String communicate(){

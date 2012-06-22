@@ -16,6 +16,7 @@ import android.widget.Toast;
 public class AttendanceNCITActivity extends Activity {
 		EditText inputUsername;
 		EditText inputPassword;
+		EditText inputDomain;
 		private String token;
 		  
 		@Override
@@ -25,6 +26,7 @@ public class AttendanceNCITActivity extends Activity {
 			
 			inputUsername = (EditText) findViewById(R.id.username_input);
 			inputPassword = (EditText) findViewById(R.id.password_input);
+			inputDomain = (EditText) findViewById(R.id.domain_input);
 			Button nextPage = (Button) findViewById(R.id.signInButton);
 			
 			//Listening to button event
@@ -34,6 +36,9 @@ public class AttendanceNCITActivity extends Activity {
 					if (validPassword() == true){
 						//Starting a new Intent
 						Intent nextScreen = new Intent(AttendanceNCITActivity.this,MainMenuActivity.class);
+						nextScreen.putExtra("user",getUsername());
+						nextScreen.putExtra("pass",getPassword());
+						nextScreen.putExtra("domain",getDomain());
 						// starting new activity
 						startActivity(nextScreen);
 					}
@@ -73,6 +78,10 @@ public class AttendanceNCITActivity extends Activity {
 		
 		public String getPassword(){
 			return inputPassword.getText().toString();
+		}
+		
+		public String getDomain(){
+			return inputDomain.getText().toString();
 		}
 		
 		public String getToken(){
