@@ -31,7 +31,7 @@ public class AttendActivity extends Activity{
 		
 		//private String domainName = "http://192.168.0.106/moodle";
 		private  String domainName = "";
-		private String token = "a95627c35b4c824d90f9445bf828e571";
+		//private String token = "a95627c35b4c824d90f9445bf828e571";
 		
 		
 	    @Override
@@ -45,13 +45,13 @@ public class AttendActivity extends Activity{
 	        
 	        String urlParameters = null;
 			try {
-				urlParameters = "userids[0]=" + URLEncoder.encode("1","UTF-8");
+				urlParameters = "attendanceid=" + URLEncoder.encode("3","UTF-8");
 				
 			} catch (UnsupportedEncodingException e1) {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
 			}
-	        moodleConnector = new MoodleConnector(domainName,urlParameters,"moodle_user_get_users_by_id");
+	        moodleConnector = new MoodleConnector(domainName,urlParameters,"mod_attforblock_get_attendance_data");
 	        
 	        
 	        attendCourse = (CheckBox)findViewById(R.id.attend_course);
@@ -71,7 +71,8 @@ public class AttendActivity extends Activity{
 	    
 	    public void attendSelected(){
 	    	String result = moodleConnector.communicate();
-	    	Toast.makeText(this, result, Toast.LENGTH_SHORT).show();
+	    	System.out.println(result);
+	    	//Toast.makeText(this, result, Toast.LENGTH_SHORT).show();
 	    	
 	    	/*
 	    	// REST RETURNED VALUES FORMAT
@@ -163,6 +164,7 @@ public class AttendActivity extends Activity{
 	        
 	        Toast.makeText(this, "Data sent to Moodle server", Toast.LENGTH_SHORT).show();
 	        */
+	    	
 	    }
 
 } 
