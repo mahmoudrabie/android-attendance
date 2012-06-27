@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="hello">Hello World, AttendanceNCITActivity!</string>
+    <string name="app_name">AttendanceNCIT</string>
+    <string name="courses_prompt">Select course</string>
+</resources>
