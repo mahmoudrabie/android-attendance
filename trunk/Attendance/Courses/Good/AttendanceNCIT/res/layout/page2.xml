@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" 
+    android:background="@drawable/bnew"
+    >
+
+    
+    <LinearLayout 
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal" 
+        android:orientation="horizontal"
+        >
+		<Button
+		    android:id="@+id/selectButton"
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:layout_marginTop="90dp"
+		    android:layout_marginLeft="140dp"
+		    android:gravity="center"
+		    android:text="Select Course" />
+    </LinearLayout>
+    
+	<LinearLayout 
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal" 
+        android:orientation="horizontal"
+        >
+		<Button
+		    android:id="@+id/attendanceButton"
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:layout_marginTop="40dp"
+		    android:layout_marginLeft="140dp"
+		    android:gravity="center"
+		    android:text="Attendance" />
+    </LinearLayout>
+    
+    
+	<LinearLayout 
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal" 
+        android:orientation="horizontal"
+        >
+		<Button
+		    android:id="@+id/updateButton"
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:layout_marginTop="40dp"
+		    android:layout_marginLeft="140dp"
+		    android:gravity="center"
+		    android:text="Update Profile" />
+    </LinearLayout>
+    
+	
+</LinearLayout>
