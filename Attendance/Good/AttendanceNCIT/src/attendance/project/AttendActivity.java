@@ -65,7 +65,6 @@ public class AttendActivity extends Activity{
 				}
 			});
 	        
-	        
 	    }
 	    
 	    public void attendSelected(){
