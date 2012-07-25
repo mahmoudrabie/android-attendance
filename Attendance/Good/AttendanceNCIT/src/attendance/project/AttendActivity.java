@@ -33,8 +33,7 @@ public class AttendActivity extends Activity{
 		private  String domainName = "";
 		//private String token = "a95627c35b4c824d90f9445bf828e571";
 		
-		
-	    @Override
+		@Override
 	    public void onCreate(Bundle savedInstanceState) {
 	        super.onCreate(savedInstanceState);
 	        setContentView(R.layout.page4);
