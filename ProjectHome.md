@@ -1,0 +1,1 @@
+This project is an Android app which interfaces with Moodle in order for students to be able to check in when they enter a course room or a lab, so as their attendance is marked automatically
